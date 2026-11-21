@@ -1,0 +1,782 @@
+[
+ {
+  "cardId": 1,
+  "name": "The Fool",
+  "arcana": "Major Arcana",
+  "rank": "0",
+  "keywords": "Beginnings · Innocence · Spontaneity · Faith",
+  "meaning": "A fresh start taken on pure faith, stepping into the unknown with an open heart.",
+  "upright": "The Fool heralds a genuine new beginning. Opportunities arrive without warning and the only requirement is the courage to say yes. Travel, leaps of faith and untried paths are favoured; the universe rewards your willingness to begin before every detail is certain.",
+  "reversed": "Reversed, The Fool warns of recklessness rather than trust. A step is being taken without preparation, or an old fear of leaping keeps you frozen at the cliff's edge. Consider which of the two applies, and either pause for planning or accept that no journey ever feels safe."
+ },
+ {
+  "cardId": 2,
+  "name": "The Magician",
+  "arcana": "Major Arcana",
+  "rank": "I",
+  "keywords": "Manifestation · Willpower · Skill · Resourcefulness",
+  "meaning": "The power to turn intention into reality through focused will and talent.",
+  "upright": "Every tool you need is already on the table. The Magician appears when a desire is ready to be shaped into something concrete through clear speech, decisive action and concentrated effort. Speak your intention aloud and begin; the energy of creation flows through you now.",
+  "reversed": "The Magician reversed points to scattered energy, deception or unused talent. Someone may be manipulating a situation, or you are distracting yourself from the one action that matters. Realign your words with your truth before you commit."
+ },
+ {
+  "cardId": 3,
+  "name": "The High Priestess",
+  "arcana": "Major Arcana",
+  "rank": "II",
+  "keywords": "Intuition · Mystery · Inner voice · Secrets",
+  "meaning": "Deep intuitive knowledge that asks to be trusted rather than explained.",
+  "upright": "The answer you seek is not in any outer voice but in the quiet beneath it. The High Priestess counsels stillness, listening and patience; dreams, coincidences and gut feelings carry real information now. Not everything needs to be revealed to be known.",
+  "reversed": "Reversed, she signals ignored intuition and secrets that corrode. You may be rationalising away what you already feel to be true, or withholding your inner knowledge from those who deserve it. Return to silence and let the inner voice re-establish itself."
+ },
+ {
+  "cardId": 4,
+  "name": "The Empress",
+  "arcana": "Major Arcana",
+  "rank": "III",
+  "keywords": "Abundance · Nurture · Creativity · Sensuality",
+  "meaning": "Fertile, creative energy that grows whatever receives patient care.",
+  "upright": "The Empress is the great mother of the deck: abundance, comfort and creative fruit. Projects, relationships and even the body flourish under gentle, consistent attention. Say yes to pleasure, beauty and generosity — growth is your natural state right now.",
+  "reversed": "Reversed, The Empress warns of creative blockage or smothering care. Something is being overwatered and under-pruned, or your own needs have been left off the list. Tend to yourself first and growth will resume."
+ },
+ {
+  "cardId": 5,
+  "name": "The Emperor",
+  "arcana": "Major Arcana",
+  "rank": "IV",
+  "keywords": "Authority · Structure · Discipline · Stability",
+  "meaning": "Order imposed on chaos through disciplined leadership and clear boundaries.",
+  "upright": "The Emperor brings structure, strategy and steady command. This is a moment for systems, rules and long-term plans rather than impulse. Authority is available to you — claim it calmly, set boundaries, and protect what you are building.",
+  "reversed": "Reversed, the Emperor shows rigid control, tyranny or an absent father-figure. Structure has become a cage, or authority is being exercised without wisdom. Loosen the grip and lead by service rather than force."
+ },
+ {
+  "cardId": 6,
+  "name": "The Hierophant",
+  "arcana": "Major Arcana",
+  "rank": "V",
+  "keywords": "Tradition · Teaching · Institutions · Belief",
+  "meaning": "Time-tested knowledge handed down through teachers, ritual and tradition.",
+  "upright": "The Hierophant honours tradition, apprenticeship and the wisdom of institutions. Learning from a teacher, joining a community or following established practice will serve you now. Not every path needs to be invented; some have already been mapped.",
+  "reversed": "Reversed, he warns of dogma, rebellion for its own sake, or outgrown beliefs. An inherited rule no longer fits your truth. Question authority respectfully and write your own creed."
+ },
+ {
+  "cardId": 7,
+  "name": "The Lovers",
+  "arcana": "Major Arcana",
+  "rank": "VI",
+  "keywords": "Union · Choice · Harmony · Values",
+  "meaning": "A significant union or a heart-led choice between paths.",
+  "upright": "The Lovers speak of deep connection — romantic or collaborative — and of the choices that define who we are. Alignment between your values and your actions brings harmony. When a choice appears, let the heart and the conscience decide together.",
+  "reversed": "Reversed, The Lovers indicate disharmony, avoidance of a necessary choice, or values out of alignment with behaviour. A relationship or commitment may need honest renegotiation before it can flourish again."
+ },
+ {
+  "cardId": 8,
+  "name": "The Chariot",
+  "arcana": "Major Arcana",
+  "rank": "VII",
+  "keywords": "Determination · Victory · Control · Direction",
+  "meaning": "Opposing forces harnessed to a single will, driving toward victory.",
+  "upright": "The Chariot is momentum with a destination. Conflicting demands are reconciled through focus and discipline, and the road opens ahead of you. Take the reins, assert your direction and expect progress — hard-won, deliberate and public.",
+  "reversed": "Reversed, the Chariot veers. Aggression replaces drive, or too many destinations pull the reins apart. Slow the vehicle, choose one road, and remember that control begins with self-mastery."
+ },
+ {
+  "cardId": 9,
+  "name": "Strength",
+  "arcana": "Major Arcana",
+  "rank": "VIII",
+  "keywords": "Courage · Compassion · Patience · Inner power",
+  "meaning": "True strength as gentle courage that tames the wild without breaking it.",
+  "upright": "Strength shows power expressed as patience, kindness and steady nerve. The lion is not defeated but befriended. Face the intimidating situation with a calm heart, and your gentleness will prove stronger than any force.",
+  "reversed": "Reversed, Strength flags self-doubt, raw impulse or courage spent on the wrong battle. The inner beast is driving instead of being guided. Breathe, forgive yourself, and reclaim the quiet authority you actually possess."
+ },
+ {
+  "cardId": 10,
+  "name": "The Hermit",
+  "arcana": "Major Arcana",
+  "rank": "IX",
+  "keywords": "Introspection · Solitude · Guidance · Wisdom",
+  "meaning": "Withdrawing to seek truth by one's own inner lamp.",
+  "upright": "The Hermit calls for deliberate retreat from noise. Solitude, study and honest self-examination reveal what crowds have hidden. The answers belong to you alone for now; share them when the lamp has burned steady.",
+  "reversed": "Reversed, the Hermit warns of isolation that has outlived its purpose, or of hiding behind wisdom to avoid living. Come down from the mountain; the world and its lessons are waiting."
+ },
+ {
+  "cardId": 11,
+  "name": "Wheel of Fortune",
+  "arcana": "Major Arcana",
+  "rank": "X",
+  "keywords": "Cycles · Destiny · Turning point · Luck",
+  "meaning": "The great wheel turns and circumstances change with it.",
+  "upright": "The Wheel turns in your favour. A cycle completes and a new one begins, often with surprising speed. Coincidences are meaningful; ride the momentum and stay flexible, because the highest point of the wheel is already in motion.",
+  "reversed": "Reversed, the Wheel resists. Bad timing, repeating patterns or luck running against the plan suggests fighting the current. Loosen your hold on outcomes; the wheel always turns again."
+ },
+ {
+  "cardId": 12,
+  "name": "Justice",
+  "arcana": "Major Arcana",
+  "rank": "XI",
+  "keywords": "Fairness · Truth · Law · Cause and effect",
+  "meaning": "Clear-eyed accountability: every effect traces honestly to its cause.",
+  "upright": "Justice cuts through wishful thinking with clarity and fairness. Contracts, decisions and disputes resolve according to their true merit. Act with integrity and the judgement will land in your favour; the scales are weighing things exactly as they are.",
+  "reversed": "Reversed, Justice shows imbalance, bias or an avoided reckoning. Someone is not telling the whole truth — possibly you. An unfair outcome can still be corrected, but only by facing the facts without flinching."
+ },
+ {
+  "cardId": 13,
+  "name": "The Hanged Man",
+  "arcana": "Major Arcana",
+  "rank": "XII",
+  "keywords": "Surrender · New perspective · Pause · Sacrifice",
+  "meaning": "Deliberate suspension that transforms a problem by changing the viewpoint.",
+  "upright": "The Hanged Man hangs willingly. Progress now comes through pausing, surrendering control and seeing the situation from an entirely new angle. What feels like stalling is actually deep preparation; the release you want follows the letting go.",
+  "reversed": "Reversed, he is stuck — sacrifice without meaning, or martyrdom performed for an audience. The pause has become avoidance. Either commit to the new perspective or step down and move."
+ },
+ {
+  "cardId": 14,
+  "name": "Death",
+  "arcana": "Major Arcana",
+  "rank": "XIII",
+  "keywords": "Transformation · Endings · Release · Rebirth",
+  "meaning": "An ending that clears the ground for an inevitable rebirth.",
+  "upright": "Death rarely means literal death; it means transformation. Something — a role, a belief, a phase — has finished its work and must be released so the new can be born. Do not cling to the shed skin; what comes next cannot arrive while the door is barred.",
+  "reversed": "Reversed, Death resisted. An ending is being prolonged out of fear, draining energy that renewal needs. The transition will happen either way; choosing it willingly restores your power."
+ },
+ {
+  "cardId": 15,
+  "name": "Temperance",
+  "arcana": "Major Arcana",
+  "rank": "XIV",
+  "keywords": "Balance · Moderation · Alchemy · Patience",
+  "meaning": "Opposites blended with care into something wiser than either alone.",
+  "upright": "Temperance is the art of blending. Extremes are tempered, conflicting needs find measure, and steady patient effort turns base metal to gold. Avoid excess in every direction; the middle path is not dull but precise.",
+  "reversed": "Reversed, Temperance signals excess, impatience or a life out of balance. One ingredient is overwhelming the mixture — work, pleasure, worry or indulgence. Re-measure the proportions and let time do its quiet work."
+ },
+ {
+  "cardId": 16,
+  "name": "The Devil",
+  "arcana": "Major Arcana",
+  "rank": "XV",
+  "keywords": "Bondage · Temptation · Shadow · Attachment",
+  "meaning": "The chains we choose: attachments and appetites that quietly rule from below.",
+  "upright": "The Devil names the chain — a habit, a relationship, a fear — that pretends to be inescapable. The lock, however, opens from the inside. Look honestly at what binds you, especially what pleasure disguises, and the power of the bond will shrink on contact.",
+  "reversed": "Reversed, the chains are loosening. Awareness of the attachment is breaking its grip, though withdrawal is real. Freeing yourself now is slow, unglamorous and entirely possible."
+ },
+ {
+  "cardId": 17,
+  "name": "The Tower",
+  "arcana": "Major Arcana",
+  "rank": "XVI",
+  "keywords": "Upheaval · Revelation · Collapse · Awakening",
+  "meaning": "Sudden, necessary collapse of a false structure.",
+  "upright": "The Tower strikes what was built on unstable ground. A shock, revelation or abrupt change topples assumptions, and the discomfort is proportional to how false the foundation was. Let it fall cleanly — what remains standing after the storm will be true.",
+  "reversed": "Reversed, the Tower trembles. Disaster is feared or barely deferred; change is resisted until it must arrive all at once. Dismantle the weak structure voluntarily while demolition is still a choice."
+ },
+ {
+  "cardId": 18,
+  "name": "The Star",
+  "arcana": "Major Arcana",
+  "rank": "XVII",
+  "keywords": "Hope · Renewal · Inspiration · Faith",
+  "meaning": "Serenity and renewed faith after the storm has passed.",
+  "upright": "After the Tower, the Star. Healing water pours freely, inspiration returns, and a guiding light makes the long road feel walkable again. Hope is not naive here; it is accurate. Trust the quiet promise that you are being led somewhere kinder.",
+  "reversed": "Reversed, the Star dims. Discouragement, disconnection or lost faith has you looking down instead of up. The light has not left the sky — only your gaze has dropped. Small acts of self-care restore the sight."
+ },
+ {
+  "cardId": 19,
+  "name": "The Moon",
+  "arcana": "Major Arcana",
+  "rank": "XVIII",
+  "keywords": "Illusion · Dream · Anxiety · The unconscious",
+  "meaning": "Moonlit fog: not everything is what it appears to be, and feelings amplify.",
+  "upright": "The Moon moves the reading into dream-logic. Fears magnify, facts blur, and intuition is needed precisely because the surface is unreliable. Do not force clarity at midnight; walk slowly, trust the deep currents, and wait for dawn to verify the shapes.",
+  "reversed": "Reversed, the fog lifts. Confusion releases, a deception is uncovered, and nightmares lose their grip. Truth that was obscured is emerging — let it arrive the rest of the way."
+ },
+ {
+  "cardId": 20,
+  "name": "The Sun",
+  "arcana": "Major Arcana",
+  "rank": "XIX",
+  "keywords": "Joy · Success · Vitality · Clarity",
+  "meaning": "Warm, open success — everything visible, everything alive.",
+  "upright": "The Sun shines without subtlety: success, health, joy and simple truth. Achievements are seen and celebrated, relationships warm, and life feels briefly uncomplicated. Say yes to visibility; this is the card of being genuinely glad to be alive.",
+  "reversed": "Reversed, the Sun is veiled. Joy is present but dimmed by delay, false modesty or residual clouds. The success is real; only the celebration is postponed. Let yourself receive the warmth that is already yours."
+ },
+ {
+  "cardId": 21,
+  "name": "Judgement",
+  "arcana": "Major Arcana",
+  "rank": "XX",
+  "keywords": "Awakening · Reckoning · Calling · Renewal",
+  "meaning": "A summons to rise, account for the past and answer a higher calling.",
+  "upright": "Judgement sounds the trumpet: an awakening, a calling, a moment of honest reckoning. The past returns not to punish but to be integrated. Forgive what must be forgiven, choose the higher path, and answer the call that has your true name on it.",
+  "reversed": "Reversed, the call goes unanswered. Self-judgement masquerades as conscience, or old regrets block the rising. The summons will repeat; meeting it sooner is the mercy."
+ },
+ {
+  "cardId": 22,
+  "name": "The World",
+  "arcana": "Major Arcana",
+  "rank": "XXI",
+  "keywords": "Completion · Wholeness · Achievement · Integration",
+  "meaning": "The circle closes: completion, travel, and the whole world in your hands.",
+  "upright": "The World completes the great cycle. A significant chapter closes with mastery, integration and quiet triumph. Broad horizons open — literal travel, publishing, graduation, any finish line that becomes a gate. Dance once, then step through.",
+  "reversed": "Reversed, the World awaits its final stitch. A project is 95 percent complete but the last closure is avoided, keeping the next gate shut. Finish the unfinished; completion is a skill, not an accident."
+ },
+ {
+  "cardId": 23,
+  "name": "Ace of Wands",
+  "arcana": "Wands",
+  "rank": "Ace",
+  "keywords": "Spark · Initiative · Raw potential",
+  "meaning": "A spark of pure enterprise waiting to be acted upon.",
+  "upright": "A new venture, job idea or creative spark ignites. The Ace of Wands is raw fuel — act on it quickly and boldly while the fire is fresh. Courage now pays for months ahead.",
+  "reversed": "The match won't strike: delay, doubt or a half-hearted start. The idea is good; the timing and the nerve need work. Rekindle it deliberately instead of blaming the spark."
+ },
+ {
+  "cardId": 24,
+  "name": "Two of Wands",
+  "arcana": "Wands",
+  "rank": "Two",
+  "keywords": "Planning · Vision · First steps",
+  "meaning": "The world in hand: choosing where to aim a fledgling enterprise.",
+  "upright": "The initial spark needs a map. The Two of Wands plans routes, weighs territories and makes the first bold commitment. Think bigger — the view from the battlements is wider than you assume.",
+  "reversed": "Restlessness without a plan, or fear of leaving the known balcony. Small thinking shrinks a large vision. Name the destination and take one concrete step."
+ },
+ {
+  "cardId": 25,
+  "name": "Three of Wands",
+  "arcana": "Wands",
+  "rank": "Three",
+  "keywords": "Expansion · Foresight · Ships coming in",
+  "meaning": "Efforts launched are now visibly heading toward port.",
+  "upright": "What was set in motion is moving: expansion, cooperation from abroad, long-term plans proving sound. Look to the horizon and keep coordinating; your wider perspective is the asset.",
+  "reversed": "Ships delayed, plans stalled by narrow vision or refusal to ask for help. Check whether you are waiting for a wind you could have made yourself."
+ },
+ {
+  "cardId": 26,
+  "name": "Four of Wands",
+  "arcana": "Wands",
+  "rank": "Four",
+  "keywords": "Celebration · Homecoming · Milestone",
+  "meaning": "A landing place: joy shared, a milestone genuinely reached.",
+  "upright": "Celebrate a real milestone — a launch, a reunion, a stable home base. The Four of Wands puts flowers on the gate. Pausing to mark progress is not lost time; it seals the foundation.",
+  "reversed": "Celebration postponed or a transition that feels unsteady. Home and belonging may need repair before the next phase. Rebuild the welcome, then move."
+ },
+ {
+  "cardId": 27,
+  "name": "Five of Wands",
+  "arcana": "Wands",
+  "rank": "Five",
+  "keywords": "Competition · Friction · Creative conflict",
+  "meaning": "Busy, noisy struggle — rivalry that scrambles the energy.",
+  "upright": "Conflict, competition and clashing schedules tangle the day. The Five of Wands is sparring, not war: treat friction as practice, stay in the ring, and let creative tension sharpen rather than scatter you.",
+  "reversed": "Conflict avoided until it leaks out sideways, or aggression without a target. Either name the fight honestly or withdraw gracefully — simmering serves no one."
+ },
+ {
+  "cardId": 28,
+  "name": "Six of Wands",
+  "arcana": "Wands",
+  "rank": "Six",
+  "keywords": "Victory · Recognition · Public win",
+  "meaning": "The triumphant return: recognition earned and visibly conferred.",
+  "upright": "A genuine win arrives with applause. The Six of Wands rides the laurel — promotion, praise, a bid accepted. Accept the recognition fully; confidence earned is meant to be worn.",
+  "reversed": "Recognition withheld, imposter feelings, or a victory that feels hollow. Fall on your own sword privately if you must, but do not steal the credit that is due."
+ },
+ {
+  "cardId": 29,
+  "name": "Seven of Wands",
+  "arcana": "Wands",
+  "rank": "Seven",
+  "keywords": "Defending position · Perseverance · Grit",
+  "meaning": "Holding the high ground against challengers.",
+  "upright": "You are ahead, and others know it. The Seven of Wands defends territory with stubborn courage. Pick your battles deliberately, stand your ground on the important ones, and outlast the pushback.",
+  "reversed": "Defence becomes overwhelm: too many fronts, exhaustion, temptation to abandon a defensible position. Consolidate, prioritize, and stop fighting ghosts."
+ },
+ {
+  "cardId": 30,
+  "name": "Eight of Wands",
+  "arcana": "Wands",
+  "rank": "Eight",
+  "keywords": "Speed · Momentum · Rapid movement",
+  "meaning": "Everything accelerates — messages, travel, fast forward motion.",
+  "upright": "The Eight of Wands is pure velocity: news arrives, flights book, replies land, and the project suddenly moves. Align with the speed and let the stream carry your work.",
+  "reversed": "Delays, misdirected messages, scattered motion without progress. Slow down just enough to aim; speed without direction is only churn."
+ },
+ {
+  "cardId": 31,
+  "name": "Nine of Wands",
+  "arcana": "Wands",
+  "rank": "Nine",
+  "keywords": "Resilience · Last stand · Battle fatigue",
+  "meaning": "Wounded but standing: one last push with reserves nearly spent.",
+  "upright": "You are tired, wary and closer than you think. The Nine of Wands is perseverance with bruises — protect the perimeter, trust your experience, and finish what you started.",
+  "reversed": "Paranoia and burnout distort the watch. Not every shadow is an enemy. Rest is a tactical necessity here, not a defeat."
+ },
+ {
+  "cardId": 32,
+  "name": "Ten of Wands",
+  "arcana": "Wands",
+  "rank": "Ten",
+  "keywords": "Overload · Burden · Nearly done",
+  "meaning": "Carrying everything at once, at the edge of capacity.",
+  "upright": "Responsibilities have piled into a bundle too large to see over. The Ten of Wands finishes the job by shouldering it — but afterwards, delegate or drop what was never yours to carry.",
+  "reversed": "The load crushes: refusing help, resentment, or a goal that has become pure slog. Put the bundle down, sort it honestly, and pick up only what still matters."
+ },
+ {
+  "cardId": 33,
+  "name": "Page of Wands",
+  "arcana": "Wands",
+  "rank": "Page",
+  "keywords": "Enthusiasm · Exploration · Good news",
+  "meaning": "A young flame: curiosity, announcements and beginner excitement.",
+  "upright": "A burst of enthusiasm, often with news of an opportunity. The Page of Wands explores without guarantees — try the class, send the message, light the pilot flame and see what catches.",
+  "reversed": "Enthusiasm that fizzles before commitment, or flaky messaging. The fire needs a real container: pick one direction and stay with it past the fun part."
+ },
+ {
+  "cardId": 34,
+  "name": "Knight of Wands",
+  "arcana": "Wands",
+  "rank": "Knight",
+  "keywords": "Adventure · Boldness · Impulsive flight",
+  "meaning": "Charging ahead with passion and little patience for detours.",
+  "upright": "Full gallop toward a vision. The Knight of Wands is charisma, bold travel and decisive — if occasionally reckless — action. Move now, refine later; momentum is your ally.",
+  "reversed": "Recklessness, hasty exits, passion that burns through commitments. Land the horse: channel the fire into sustained direction or it will simply scatter."
+ },
+ {
+  "cardId": 35,
+  "name": "Queen of Wands",
+  "arcana": "Wands",
+  "rank": "Queen",
+  "keywords": "Warmth · Confidence · Charismatic host",
+  "meaning": "Self-assured warmth that inspires by sheer presence.",
+  "upright": "The Queen of Wands rules her hearth and her stage with magnetism. Lead socially, create generously, and trust your vibrant instincts — your energy literally warms and organizes the room.",
+  "reversed": "Insecurity masked by bravado, or warmth withdrawn into jealousy. Recharge your own fire before lending or demanding anyone else's."
+ },
+ {
+  "cardId": 36,
+  "name": "King of Wands",
+  "arcana": "Wands",
+  "rank": "King",
+  "keywords": "Visionary leadership · Enterprise · Bold rule",
+  "meaning": "Mastery of fire: entrepreneurial leadership with enduring vision.",
+  "upright": "The King of Wands builds empires and inspires loyalty. Lead from the front with clear vision, delegate with trust, and turn raw ambition into lasting institutions.",
+  "reversed": "Domination instead of leadership, or vision dulled into hubris. Listen before decreeing; the best kings take counsel and still decide."
+ },
+ {
+  "cardId": 37,
+  "name": "Ace of Cups",
+  "arcana": "Cups",
+  "rank": "Ace",
+  "keywords": "New love · Emotional opening · Overflow",
+  "meaning": "The cup offered: a new emotional beginning overflowing with feeling.",
+  "upright": "Love, friendship or creative inspiration opens freshly. The Ace of Cups is the heart's yes — receive it, express it, and let compassion lead. Emotional renewal is here and it is real.",
+  "reversed": "The cup is tipped away: blocked feelings, guardedness or outpouring grief. Feelings are present but unexpressed. Create a safe channel before the heart reopens."
+ },
+ {
+  "cardId": 38,
+  "name": "Two of Cups",
+  "arcana": "Cups",
+  "rank": "Two",
+  "keywords": "Partnership · Mutual attraction · Vows",
+  "meaning": "Two hearts meeting as equals: union, pact or genuine rapport.",
+  "upright": "A true partnership forms — romantic, business or a cherished friendship. Mutual regard and shared vulnerability seal the deal. Say the honest word; the connection deepens through it.",
+  "reversed": "Imbalance in the exchange: one heart leaning, one drifting. Trust needs repair or a relationship is out of tune. Re-negotiate the meeting point honestly."
+ },
+ {
+  "cardId": 39,
+  "name": "Three of Cups",
+  "arcana": "Cups",
+  "rank": "Three",
+  "keywords": "Friendship · Community · Celebration",
+  "meaning": "Joy shared among friends: community, celebration, creative kinship.",
+  "upright": "Gatherings, good news and the warmth of chosen family. The Three of Cups reminds you that joy multiplies when divided. Celebrate together and lean on your circle.",
+  "reversed": "Gossip, third-party strain or celebration that excludes. A triangle complicates the circle. Clear the air directly rather than through the group's chorus."
+ },
+ {
+  "cardId": 40,
+  "name": "Four of Cups",
+  "arcana": "Cups",
+  "rank": "Four",
+  "keywords": "Apathy · Contemplation · Missed offer",
+  "meaning": "A gift ignored while attention drifts inward.",
+  "upright": "Withdrawal and weariness: the world offers a cup and you are staring at the ground. Rest is legitimate, but look up before the offered opportunity walks past. Reassessment precedes re-engagement.",
+  "reversed": "Re-awakening from the fog — reaching for the cup again. Old apathy lifts as new interests stir. Accept the invitation that recenters you."
+ },
+ {
+  "cardId": 41,
+  "name": "Five of Cups",
+  "arcana": "Cups",
+  "rank": "Five",
+  "keywords": "Grief · Loss · Regret",
+  "meaning": "Mourning what spilled, while a cup still stands behind you.",
+  "upright": "Loss and regret deserve honest grief. Yet the Five of Cups shows what remains upright: support, love and possibility survive the spilling. Turn, slowly, when you are ready.",
+  "reversed": "Grief integrated; the turning has begun. Forgiveness — of self or other — releases the lingering residue. Walk home toward what still stands."
+ },
+ {
+  "cardId": 42,
+  "name": "Six of Cups",
+  "arcana": "Cups",
+  "rank": "Six",
+  "keywords": "Nostalgia · Innocence · Reunion",
+  "meaning": "Sweet memory and childhood warmth exchanged between two people.",
+  "upright": "The past visits gently: reunions, keepsakes, childlike delight. The Six of Cups offers innocence and simple kindness. Share memories, mentor someone, play without purpose.",
+  "reversed": "Nostalgia becomes a locked room, or old patterns replay in new costumes. Live forward; take the sweetness and leave the sugar-crust."
+ },
+ {
+  "cardId": 43,
+  "name": "Seven of Cups",
+  "arcana": "Cups",
+  "rank": "Seven",
+  "keywords": "Options · Fantasy · Illusion of choice",
+  "meaning": "Seven glittering cups: imagination abundant, judgment required.",
+  "upright": "Dreams, daydreams and tempting possibilities multiply. Not all that glitters holds wine. Fantasy is fuel but discernment is the chalice — test the options against reality before you pour your life into one.",
+  "reversed": "Clarity cuts through the fog: a choice becomes real, or a deception collapses. Commitment replaces browsing. Choose one cup and drink it fully."
+ },
+ {
+  "cardId": 44,
+  "name": "Eight of Cups",
+  "arcana": "Cups",
+  "rank": "Eight",
+  "keywords": "Walking away · Deeper quest · Leaving the shallow",
+  "meaning": "Turning from emotional comfort toward a harder, truer mountain path.",
+  "upright": "Something once valued no longer feeds you, however full it looks. The Eight of Cups walks away at night — gently, resolutely — toward meaning rather than comfort. Departure is the honest act here.",
+  "reversed": "Retreat postponed: clinging to the familiar out of guilt or fear, drifting without truly staying. Either return wholeheartedly or complete the walk-out you keep rehearsing."
+ },
+ {
+  "cardId": 45,
+  "name": "Nine of Cups",
+  "arcana": "Cups",
+  "rank": "Nine",
+  "keywords": "Contentment · Wish fulfilled · Satisfaction",
+  "meaning": "The wish card: deep personal satisfaction, arms crossed in ease.",
+  "upright": "What you wanted arrives and it suits you. The Nine of Cups is emotional abundance, pleasure earned and savoured. Enjoy it openly — this is one of the deck's cleanest yeses.",
+  "reversed": "Smugness or surface pleasure masking an unfed heart. The wish was granted but not the need beneath it. Name the deeper want honestly."
+ },
+ {
+  "cardId": 46,
+  "name": "Ten of Cups",
+  "arcana": "Cups",
+  "rank": "Ten",
+  "keywords": "Harmony · Family · Emotional completion",
+  "meaning": "The rainbow home: lasting emotional fulfillment in family and tribe.",
+  "upright": "Peace that spreads beyond the self — family harmony, community joy, a long arc finally resolving into contentment. The Ten of Cups is the heart's destination; build gently and guard it well.",
+  "reversed": "The ideal family picture cracks: disconnection at home, or perfectionism ruining real intimacy. Repair happens through small daily cups, not grand images."
+ },
+ {
+  "cardId": 47,
+  "name": "Page of Cups",
+  "arcana": "Cups",
+  "rank": "Page",
+  "keywords": "Message · Romantic spark · Creative whisper",
+  "meaning": "A delicate fish in a cup: intuition, sweet messages, creative stirrings.",
+  "upright": "News of love, an artistic impulse, a gentle intuitive nudge. The Page of Cups invites play and openness — respond to the odd idea and the tender feeling; both carry water.",
+  "reversed": "Emotional immaturity, moodiness or escapist fantasy. The inner child needs guidance, not silencing. Grow the feeling into words."
+ },
+ {
+  "cardId": 48,
+  "name": "Knight of Cups",
+  "arcana": "Cups",
+  "rank": "Knight",
+  "keywords": "Romance · Idealism · The gracious quest",
+  "meaning": "The romantic knight: charm, devotion and an offered chalice.",
+  "upright": "Romance and idealism ride in — proposals, heartfelt gestures, artistic opportunity. The Knight of Cups moves with feeling and style. Accept the invitation; follow the beauty.",
+  "reversed": "Charm without follow-through, moody idealism, promises that dissolve at dawn. Ask for substance, not just roses — from yourself as much as others."
+ },
+ {
+  "cardId": 49,
+  "name": "Queen of Cups",
+  "arcana": "Cups",
+  "rank": "Queen",
+  "keywords": "Compassion · Intuition · Emotional depth",
+  "meaning": "The empath's throne: deep feeling held with wisdom and discretion.",
+  "upright": "The Queen of Cups feels everything and drowns in nothing. Intuition, counselling, artistic depth and unconditional care flow through her. Trust your heart's readings; hold boundaries kindly.",
+  "reversed": "Overwhelm, codependence or intuition warped by fear. The cup overflows into anxiety. Ground yourself before absorbing anyone else's weather."
+ },
+ {
+  "cardId": 50,
+  "name": "King of Cups",
+  "arcana": "Cups",
+  "rank": "King",
+  "keywords": "Emotional mastery · Calm counsel · Diplomacy",
+  "meaning": "Mastery of water: steady compassion that governs the deep.",
+  "upright": "The King of Cups rules the sea with calm — diplomacy, mature love, counsel given from experience. Balance reason and feeling; be the steady harbour others steer toward.",
+  "reversed": "Emotional control turned cold, or turbulence leaking through a calm mask. Quiet manipulation must yield to honest speech before the sea calms."
+ },
+ {
+  "cardId": 51,
+  "name": "Ace of Swords",
+  "arcana": "Swords",
+  "rank": "Ace",
+  "keywords": "Clarity · Breakthrough · Truth",
+  "meaning": "The blade of truth: a piercing insight cuts through confusion.",
+  "upright": "A breakthrough of understanding arrives — sharp, clean, undeniable. The Ace of Swords wins by naming things exactly as they are. Speak the truth, make the decision, claim mental victory.",
+  "reversed": "Clarity twisted into cruelty, or confusion persisting despite the facts. The sword can carve a path or cut a friend. Examine the intent behind the blade."
+ },
+ {
+  "cardId": 52,
+  "name": "Two of Swords",
+  "arcana": "Swords",
+  "rank": "Two",
+  "keywords": "Stalemate · Difficult choice · Blindfold",
+  "meaning": "Two blades crossed: a decision avoided behind a deliberate blindfold.",
+  "upright": "You are at an impasse, weighing two options with eyes closed. The Two of Swords counsels honest stillness — the information exists, but you must lower the blindfold and look at what you already know.",
+  "reversed": "The blindfold slips: the truth moves and the stalemate breaks. Information surfaces that forces the decision. Choose with open eyes."
+ },
+ {
+  "cardId": 53,
+  "name": "Three of Swords",
+  "arcana": "Swords",
+  "rank": "Three",
+  "keywords": "Heartbreak · Painful truth · Sorrow",
+  "meaning": "The rain-soaked heart: grief that comes from seeing clearly.",
+  "upright": "A painful truth lands — heartbreak, betrayal, severance. The Three of Swords honours the wound rather than numbing it. Let the rain fall; clarity bought with pain is still clarity, and healing follows honesty.",
+  "reversed": "Healing begins: the swords ease out, forgiveness loosens the barbs. Old wounds may throb in changed weather. Recovery is underway — keep it honest."
+ },
+ {
+  "cardId": 54,
+  "name": "Four of Swords",
+  "arcana": "Swords",
+  "rank": "Four",
+  "keywords": "Rest · Recovery · Retreat",
+  "meaning": "The knight at rest: strategic stillness to restore the mind.",
+  "upright": "Exhaustion demands rest before the next battle. The Four of Swords prescribes deliberate pause — sleep, silence, sanctuary. This is strategy, not surrender; the blade stays close.",
+  "reversed": "Restlessness returns too soon, or rest has curdled into hiding. Re-enter the world gently; the mind is sharper for the pause you took."
+ },
+ {
+  "cardId": 55,
+  "name": "Five of Swords",
+  "arcana": "Swords",
+  "rank": "Five",
+  "keywords": "Defeat · Pyrrhic victory · Hollow win",
+  "meaning": "Winning the argument and losing the field.",
+  "upright": "Conflict ends with casualties. The Five of Swords asks whether the victory was worth its price — in trust, in reputation, in loneliness. If you won ugly, repair quickly; if you lost, withdraw with dignity.",
+  "reversed": "The tide turns: amends made, grievances aired, old battles finally released. Let the grudge go — you have paid its rent long enough."
+ },
+ {
+  "cardId": 56,
+  "name": "Six of Swords",
+  "arcana": "Swords",
+  "rank": "Six",
+  "keywords": "Passage · Transition · Moving on",
+  "meaning": "The quiet ferry: leaving troubled waters for a steadier shore.",
+  "upright": "Movement away from turbulence toward calmer ground. The Six of Swords travels light and says little; the journey may be bittersweet but the direction is right. Steadier waters genuinely lie ahead.",
+  "reversed": "Passage resisted: dragged baggage, unfinished goodbyes, or a return to rough seas. Cut the moorings cleanly — the ferry cannot sail while tied."
+ },
+ {
+  "cardId": 57,
+  "name": "Seven of Swords",
+  "arcana": "Swords",
+  "rank": "Seven",
+  "keywords": "Strategy · Stealth · Questionable tactics",
+  "meaning": "Taking what isn't watched: cunning that risks the truth it serves.",
+  "upright": "Strategy favours the nimble: act with discretion, guard your plans, move before others expect. But the Seven of Swords carries a caution — tactics that deceive will cost more than they gain.",
+  "reversed": "The stealth exposed: confession, discovery, or the decision to stop scheming. Truth-telling rebuilds what cunning eroded. Come clean and keep your honour."
+ },
+ {
+  "cardId": 58,
+  "name": "Eight of Swords",
+  "arcana": "Swords",
+  "rank": "Eight",
+  "keywords": "Restriction · Self-imposed limits · Fear",
+  "meaning": "Bound and blindfolded — yet the bindings are looser than they feel.",
+  "upright": "Feeling trapped by circumstances, stories or fears that barely bind in reality. The Eight of Swords invites one small step outside the pattern; the prison door has been unlatched for some time.",
+  "reversed": "The bands fall: new options, freed thinking, courage returning. Mental chains break quickly once challenged. Walk out while the way is open."
+ },
+ {
+  "cardId": 59,
+  "name": "Nine of Swords",
+  "arcana": "Swords",
+  "rank": "Nine",
+  "keywords": "Anxiety · Nightmares · Worry at 3am",
+  "meaning": "The 3 a.m. mind: fears magnified in the dark.",
+  "upright": "Worry runs the night shift. The Nine of Swords dramatizes fears that shrink in daylight. Get the worries onto paper, share them with someone warm, and wait for morning before believing the worst.",
+  "reversed": "The dawn comes: anxiety eases, help accepted, the night's terrors re-sized to their true scale. Speaking the fear was the beginning of its end."
+ },
+ {
+  "cardId": 60,
+  "name": "Ten of Swords",
+  "arcana": "Swords",
+  "rank": "Ten",
+  "keywords": "Rock bottom · Ending · The worst has passed",
+  "meaning": "The fallen figure: an ending so complete that only dawn remains.",
+  "upright": "An ending arrives in full — painful, public, undeniable. The Ten of Swords promises that this is the bottom; nothing more falls. Dawn is already in the frame. Rest, then rise into the chapter that starts without the old weight.",
+  "reversed": "Recovery from the depths: gradual mending, resistance to victimhood, lessons harvested. The worst has truly passed when you stop reliving it."
+ },
+ {
+  "cardId": 61,
+  "name": "Page of Swords",
+  "arcana": "Swords",
+  "rank": "Page",
+  "keywords": "Curiosity · Vigilance · New learning",
+  "meaning": "The watchful student: sharp curiosity and words worth heeding.",
+  "upright": "Study, messages and mental alertness. The Page of Swords watches, asks questions and keeps notes. Learn the tools of clear thinking now; a watchful mind catches what others miss.",
+  "reversed": "Gossip, sharp words or learning without discipline. Watch the tongue as carefully as the facts. Curiosity serves when it is aimed."
+ },
+ {
+  "cardId": 62,
+  "name": "Knight of Swords",
+  "arcana": "Swords",
+  "rank": "Knight",
+  "keywords": "Ambition · Haste · Charging intellect",
+  "meaning": "The charging mind: fast, fierce and sometimes ahead of itself.",
+  "upright": "Bold mental thrust — debate, fast decisions, urgent pursuit of a cause. The Knight of Swords accomplishes much by moving first. Just ensure the target is worth the charge.",
+  "reversed": "Burnout and battle-scarred opinions: aggression replacing argument. Slow the horse, check the map, and let precision outrun fury."
+ },
+ {
+  "cardId": 63,
+  "name": "Queen of Swords",
+  "arcana": "Swords",
+  "rank": "Queen",
+  "keywords": "Perception · Independence · Clear boundaries",
+  "meaning": "The clear-eyed judge: perception honed by experience, edges intact.",
+  "upright": "The Queen of Swords sees through pretense with lived wisdom. Speak with precision, keep healthy boundaries, and value truth over comfort. Her clarity is a gift to those ready for it.",
+  "reversed": "Bitterness sharpens perception into judgment. Old wounds color the lens. Grieve what hardened you, and the blade stays bright instead of brittle."
+ },
+ {
+  "cardId": 64,
+  "name": "King of Swords",
+  "arcana": "Swords",
+  "rank": "King",
+  "keywords": "Intellectual authority · Ethics · Decisive mind",
+  "meaning": "Mastery of air: principled judgment from the seat of authority.",
+  "upright": "The King of Swords rules with intellect, ethics and impartial rigor. Make the hard ruling, articulate the standard, lead with objective truth. Logic in service of justice is his crown.",
+  "reversed": "Dogma, coldness or intellect used as a weapon. When heads rule hearts absolutely, judgment loses its justice. Reintegrate the human beneath the crown."
+ },
+ {
+  "cardId": 65,
+  "name": "Ace of Pentacles",
+  "arcana": "Pentacles",
+  "rank": "Ace",
+  "keywords": "Opportunity · Seed money · Manifestation",
+  "meaning": "The coin in hand: a tangible new opportunity takes root.",
+  "upright": "A concrete opportunity appears — a job, a contract, funding, a healthy new habit. The Ace of Pentacles is the seed of real-world success. Plant it in good soil and tend it patiently.",
+  "reversed": "The seed drops from the hand: missed opportunity, poor planning or scarcity thinking. Prosperity needs a vessel. Prepare the ground before blaming the season."
+ },
+ {
+  "cardId": 66,
+  "name": "Two of Pentacles",
+  "arcana": "Pentacles",
+  "rank": "Two",
+  "keywords": "Juggling · Adaptability · Balance in motion",
+  "meaning": "Two coins dancing: keeping multiple commitments airborne with rhythm.",
+  "upright": "Multiple demands, all manageable with nimble scheduling. The Two of Pentacles juggles work, home and play without dropping the beat. Flexibility is the skill; prioritize by the hour, not by the year.",
+  "reversed": "The juggle collapses: overcommitment, endless reshuffling without progress. Put one ball down on purpose. Balance means choosing what not to hold."
+ },
+ {
+  "cardId": 67,
+  "name": "Three of Pentacles",
+  "arcana": "Pentacles",
+  "rank": "Three",
+  "keywords": "Craftsmanship · Teamwork · Mastery in progress",
+  "meaning": "The cathedral workshop: skill honoured, plans shared, work that lasts.",
+  "upright": "Collaboration and craft: your competence is recognized and the team builds well together. The Three of Pentacles rewards training, feedback and pride in measurable work. Build to be inspected.",
+  "reversed": "Mediocrity tolerated, teamwork fraying, or talents undervalued. Raise the standard or renegotiate the role — skilled hands deserve skilled company."
+ },
+ {
+  "cardId": 68,
+  "name": "Four of Pentacles",
+  "arcana": "Pentacles",
+  "rank": "Four",
+  "keywords": "Security · Control · Holding tight",
+  "meaning": "The cautious holder: security cherished, gates kept shut.",
+  "upright": "Consolidate what you have: savings, boundaries, a stable base. The Four of Pentacles protects hard-won gains. Prudence is wise now — just check the vault has a door that opens from inside.",
+  "reversed": "Grip tightens into stagnation: hoarding money, feelings or control. Security that costs every exchange is a cell. Loosen one finger at a time."
+ },
+ {
+  "cardId": 69,
+  "name": "Five of Pentacles",
+  "arcana": "Pentacles",
+  "rank": "Five",
+  "keywords": "Hardship · Exclusion · Winter road",
+  "meaning": "Two souls in the snow: hard times felt most sharply in isolation.",
+  "upright": "Lean months — financial, physical or spiritual. The Five of Pentacles walks past the lit window: help exists but pride or despair hides it. Ask; the church door is rarely locked.",
+  "reversed": "The cold eases: recovery, employment found, belonging restored. Hardship ends gradually and then suddenly. Accept the hand that is already extended."
+ },
+ {
+  "cardId": 70,
+  "name": "Six of Pentacles",
+  "arcana": "Pentacles",
+  "rank": "Six",
+  "keywords": "Generosity · Exchange · Fair sharing",
+  "meaning": "Scales in one hand, coin in the other: giving and receiving in balance.",
+  "upright": "Resources circulate: a raise, a gift, charity given or received with dignity. The Six of Pentacles keeps the scales honest — generosity with clear terms feeds everyone, including the giver.",
+  "reversed": "Strings attached, charity that controls, or debt that distorts a relationship. Re-balance the scales; true generosity has no ledger."
+ },
+ {
+  "cardId": 71,
+  "name": "Seven of Pentacles",
+  "arcana": "Pentacles",
+  "rank": "Seven",
+  "keywords": "Patience · Assessment · Long game",
+  "meaning": "Pausing on the vine: growth underway that cannot be rushed.",
+  "upright": "Effort is invested and fruit is forming, slowly. The Seven of Pentacles is the farmer's pause — assess, prune, and let time compound. Patience here is active, not passive.",
+  "reversed": "Impatience or wasted investment: effort poured into soil that won't yield. Audit honestly. Sometimes the wisest harvest is knowing what to stop watering."
+ },
+ {
+  "cardId": 72,
+  "name": "Eight of Pentacles",
+  "arcana": "Pentacles",
+  "rank": "Eight",
+  "keywords": "Diligence · Apprenticeship · Craft repetition",
+  "meaning": "Head down, hammer up: mastery built one deliberate repetition at a time.",
+  "upright": "Focused work refines skill. The Eight of Pentacles loves the process itself — practice, detail, incremental excellence. Show up at the workbench; the masterpiece is cumulative.",
+  "reversed": "Perfectionism or drudgery: the craft has lost its meaning, or quality is slipping under rushed hands. Reconnect with why the work matters or refresh the method."
+ },
+ {
+  "cardId": 73,
+  "name": "Nine of Pentacles",
+  "arcana": "Pentacles",
+  "rank": "Nine",
+  "keywords": "Independence · Self-made comfort · Refinement",
+  "meaning": "The gracious estate: earned independence and refined enjoyment.",
+  "upright": "Self-reliance pays off: comfort, discipline rewarded, a life designed on your own terms. The Nine of Pentacles enjoys solitude and luxury without apology. Savour what your consistent effort built.",
+  "reversed": "Gilded loneliness or over-investment in image: success that costs connection, or comfort that dulls growth. Money buys freedom when it also buys time with people you love."
+ },
+ {
+  "cardId": 74,
+  "name": "Ten of Pentacles",
+  "arcana": "Pentacles",
+  "rank": "Ten",
+  "keywords": "Legacy · Wealth · Enduring foundation",
+  "meaning": "The family arch: lasting wealth, tradition and legacy beyond the self.",
+  "upright": "Long-term establishment: family prosperity, a business matured, a legacy taking shape. The Ten of Pentacles thinks in generations. Build institutions and traditions that outlive the quarter.",
+  "reversed": "Legacy disputes, tradition turned rigid, or wealth without roots. What is inherited must also be renewed. Tend the family tree, not just its fruit."
+ },
+ {
+  "cardId": 75,
+  "name": "Page of Pentacles",
+  "arcana": "Pentacles",
+  "rank": "Page",
+  "keywords": "Study · Manifesting goals · Student's coin",
+  "meaning": "The eager student: practical learning and a tangible new goal.",
+  "upright": "A new course, certification, side-hustle or savings plan. The Page of Pentacles is humble, focused and delighted by small real progress. Begin the practical education; results follow repetition.",
+  "reversed": "Distraction from study, unrealistic plans, or procrastination dressed as research. The coin rewards showing up. Shrink the goal until starting is easy."
+ },
+ {
+  "cardId": 76,
+  "name": "Knight of Pentacles",
+  "arcana": "Pentacles",
+  "rank": "Knight",
+  "keywords": "Reliability · Methodical progress · Unhurried strength",
+  "meaning": "The steady rider: slow, thorough, unstoppable progress.",
+  "upright": "Routine, patience and thoroughness win the long race. The Knight of Pentacles delivers — unfashionably perhaps, but completely. Trust the methodical pace; boredom is the price of reliability.",
+  "reversed": "Stagnation or stubbornness: motion reduced to routine, or workaholic dullness missing life's invitations. A little risk fertilizes the field."
+ },
+ {
+  "cardId": 77,
+  "name": "Queen of Pentacles",
+  "arcana": "Pentacles",
+  "rank": "Queen",
+  "keywords": "Nurture · Practicality · Abundant home",
+  "meaning": "The garden queen: practical nurturing that makes resources flourish.",
+  "upright": "The Queen of Pentacles feeds body and household alike — generous, grounded, superbly competent. Care expressed through tangible means: good food, sound finances, a welcoming home. Prosperity grows around her.",
+  "reversed": "Self-neglect behind everyone else's comfort, or money worries shadowing generosity. The garden needs the gardener fed. Include yourself in your own care."
+ },
+ {
+  "cardId": 78,
+  "name": "King of Pentacles",
+  "arcana": "Pentacles",
+  "rank": "King",
+  "keywords": "Prosperity · Stewardship · Mastery of the material",
+  "meaning": "The vine-wrapped throne: wealth mastered and wisely stewarded.",
+  "upright": "Mastery of the material world: enterprise matured, resources grown, dependents secured. The King of Pentacles leads with proven competence and quiet generosity. Steward well; abundance is a responsibility.",
+  "reversed": "Greed, rigidity or status worship: wealth hoarded while trust erodes. Prosperity divorced from purpose hollows out. Invest in what money cannot buy."
+ }
+]
