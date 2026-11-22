@@ -577,3 +577,8 @@
   .mirror-glass { height: calc(116px + 22px); }
   .t-panel { padding: 0.9rem 1rem; }
 }
+
+@keyframes t-indeterminate {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}

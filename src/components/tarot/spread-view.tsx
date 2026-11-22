@@ -13,6 +13,7 @@ import { useTarotStore } from "@/lib/tarot/store";
 import { ShufflePanel } from "./shuffle-panel";
 import { SpreadBoard } from "./spread-board";
 import { SummaryPanel } from "./summary-panel";
+import { InterpretationButton } from "./interpretation-dialog";
 
 export function SpreadView({ readingType }: { readingType: CardReadingType }) {
   const spread = getSpread(readingType);
@@ -51,7 +52,10 @@ export function SpreadView({ readingType }: { readingType: CardReadingType }) {
       {shownReading ? <ShufflePanel spread={spread} /> : null}
 
       {question ? (
-        <div className="t-sub mt-3">&ldquo;{question}&rdquo;</div>
+        <div className="flex flex-wrap items-center justify-center gap-4 mt-3">
+          <div className="t-sub">&ldquo;{question}&rdquo;</div>
+          <InterpretationButton question={question} spread={spread} reading={shownReading} />
+        </div>
       ) : (
         <p className="text-center text-[0.88rem] italic text-[color:var(--ink-faint)] mt-3">
           No question has been asked yet — visit <i>Ask the Cards</i> in the menu,
