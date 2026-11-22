@@ -1,0 +1,12 @@
+manifest_version: 2
+type: "dcm_project"
+
+default_target: "ORKAS_DBA"
+
+run_post_hooks: true
+
+targets:
+  "ORKAS_DBA":
+    project_name: "TAROT.APP.TAROT_AGENT"
+    account_identifier: "EVOHOMA-LAB15936"
+    project_owner: "DBA"

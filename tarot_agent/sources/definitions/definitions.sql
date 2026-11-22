@@ -1,0 +1,3 @@
+-- Add your DCM object definitions here.
+-- TAROT_AGENT and TAROT_MCP are created in sources/posthooks/posthook.sql
+-- (DEFINE AGENT is not yet enabled on this account).
