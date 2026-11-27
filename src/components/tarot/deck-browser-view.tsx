@@ -11,31 +11,30 @@ import { Card } from "@/lib/tarot/types";
 import { useTarotStore } from "@/lib/tarot/store";
 import { useDeck, CardFace } from "./card-views";
 import { CardDetailModal } from "./card-modal";
+import { useLocalCard, useT } from "@/lib/i18n/use-i18n";
 
+// Filter keys are the English arcana values; labels come from `arcana.<key>`.
 const FILTERS = ["All", "Major Arcana", "Wands", "Cups", "Swords", "Pentacles"];
 
 export function DeckBrowserView() {
+  const t = useT();
+  const localCard = useLocalCard();
   const filter = useTarotStore((s) => s.deckBrowseFilter);
   const setFilter = useTarotStore((s) => s.setDeckBrowseFilter);
   const deck = useDeck();
   const [modalCard, setModalCard] = useState<Card | null>(null);
 
-  const cards =
-    filter === "All"
-      ? FULL_DECK
-      : filter === "Major Arcana"
-        ? FULL_DECK.filter((c) => c.arcana === "Major Arcana")
-        : FULL_DECK.filter((c) => c.arcana === filter);
+  const cards = filter === "All" ? FULL_DECK : FULL_DECK.filter((c) => c.arcana === filter);
 
   return (
     <div>
       <div className="t-hero">
-        <h1>Deck Browser</h1>
-        <div className="t-tagline">All seventy-eight cards, face up and at leisure</div>
+        <h1>{t("deck.title")}</h1>
+        <div className="t-tagline">{t("deck.tagline")}</div>
       </div>
       <div className="t-ornament">✦ ─── ❖ ─── ✦</div>
 
-      <div className="flex flex-wrap gap-2" role="radiogroup" aria-label="Filter the deck">
+      <div className="flex flex-wrap gap-2" role="radiogroup" aria-label={t("deck.filter")}>
         {FILTERS.map((f) => (
           <button
             key={f}
@@ -45,13 +44,13 @@ export function DeckBrowserView() {
             className={`t-btn ${filter === f ? "t-btn-primary" : ""}`}
             onClick={() => setFilter(f)}
           >
-            {f}
+            {t(`arcana.${f}`)}
           </button>
         ))}
       </div>
 
       <p className="text-[color:var(--ink-faint)] text-[0.85rem] mt-2">
-        {cards.length} cards shown · deck: {deck.deckName ?? "none"}
+        {t("deck.shown", { count: cards.length, deck: deck.deckName ?? t("deck.none") })}
       </p>
 
       <div
@@ -63,7 +62,7 @@ export function DeckBrowserView() {
             key={c.cardId}
             type="button"
             className="mx-auto transition-transform duration-200 hover:-translate-y-1 hover:drop-shadow-[0_6px_14px_rgba(122,46,34,0.35)]"
-            aria-label={`View card ${c.name}`}
+            aria-label={t("card.view", { name: localCard(c).name })}
             onClick={() => setModalCard(c)}
           >
             <CardFace card={c} size="mini" faceUrl={deck.faceUrl(c.cardId)} />

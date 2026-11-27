@@ -14,6 +14,7 @@ import { useMemo } from "react";
 import { useTarotStore } from "@/lib/tarot/store";
 import { styleForDeck } from "@/lib/deck-registry.client";
 import { Card } from "@/lib/tarot/types";
+import { useLocalCard, useT } from "@/lib/i18n/use-i18n";
 
 export function useDeck(): {
   deckName: string | null;
@@ -48,12 +49,14 @@ export const SUIT_COLORS: Record<string, string> = {
 };
 
 /** Mock parchment plate — port of the CSS face fallback in card_view.py. */
-export function CardFacePlate({ card, size }: { card: Card; size: "spread" | "detail" | "mini" }) {
+export function CardFacePlate({ card: sourceCard, size }: { card: Card; size: "spread" | "detail" | "mini" }) {
   const deckName = useTarotStore((s) => s.selectedDeck);
+  const card = useLocalCard()(sourceCard);
   const style = styleForDeck(deckName);
   const dims = size === "detail" ? { cw: 184, ch: 297 } : size === "mini" ? { cw: 96, ch: 155 } : { cw: 110, ch: 178 };
-  const suitColor = SUIT_COLORS[card.arcana] ?? "#7a2e22";
-  const emblem = card.arcana === "Major Arcana" ? "✦" : (card.arcana[0] ?? "?").toUpperCase();
+  // Colour and emblem follow the English arcana key; the label is localized.
+  const suitColor = SUIT_COLORS[sourceCard.arcana] ?? "#7a2e22";
+  const emblem = sourceCard.arcana === "Major Arcana" ? "✦" : (card.arcana[0] ?? "?").toUpperCase();
 
   return (
     <div
@@ -70,6 +73,7 @@ export function CardFacePlate({ card, size }: { card: Card; size: "spread" | "de
 /** Deck card-back (`back.png`) or the shared CSS burgundy back. */
 export function CardBack({ size, deckBackUrl }: { size: "spread" | "detail" | "mini" | "stack"; deckBackUrl: string | null }) {
   const deckName = useTarotStore((s) => s.selectedDeck);
+  const t = useT();
   const style = styleForDeck(deckName);
   const dims =
     size === "detail"
@@ -85,7 +89,7 @@ export function CardBack({ size, deckBackUrl }: { size: "spread" | "detail" | "m
         className="card-back card-back-img"
         style={{ "--cw": `${dims.cw}px`, "--ch": `${dims.ch}px` } as React.CSSProperties}
       >
-        <img src={deckBackUrl} alt="card back" />
+        <img src={deckBackUrl} alt={t("card.back")} />
       </div>
     );
   }
@@ -112,13 +116,14 @@ export function CardFace({
   faceUrl: string | null;
 }) {
   const dims = size === "detail" ? { cw: 184, ch: 297 } : size === "mini" ? { cw: 96, ch: 155 } : { cw: 110, ch: 178 };
+  const name = useLocalCard()(card).name;
   if (faceUrl) {
     return (
       <div
         className="card-face card-face-img"
         style={{ "--cw": `${dims.cw}px`, "--ch": `${dims.ch}px` } as React.CSSProperties}
       >
-        <img src={faceUrl} alt={card.name} />
+        <img src={faceUrl} alt={name} />
       </div>
     );
   }

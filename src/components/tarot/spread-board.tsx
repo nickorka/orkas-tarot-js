@@ -15,6 +15,7 @@ import { SpreadCard } from "@/lib/tarot/types";
 import { useTarotStore } from "@/lib/tarot/store";
 import { CardDetailModal } from "./card-modal";
 import { useDeck, CardFacePlate, CardBack } from "./card-views";
+import { useLocalCard, useT } from "@/lib/i18n/use-i18n";
 
 export const CARD_W = 110;
 export const CARD_H = 178;
@@ -29,6 +30,8 @@ interface SlotProps {
 
 function Slot({ sc, index, posName, rotateDeg = 0, seqReveal }: SlotProps) {
   const deck = useDeck();
+  const t = useT();
+  const localCard = useLocalCard();
   const [modal, setModal] = useState<SpreadCard | null>(null);
 
   if (!sc) {
@@ -70,8 +73,8 @@ function Slot({ sc, index, posName, rotateDeg = 0, seqReveal }: SlotProps) {
         disabled={!sc.flipped}
         aria-label={
           sc.flipped
-            ? `${sc.card.name} (${sc.isReversed ? "Reversed" : "Upright"}) — ${posName}`
-            : `Face-down card ${index + 1} — ${posName}`
+            ? `${localCard(sc.card).name} (${t(sc.isReversed ? "card.reversed" : "card.upright")}) — ${posName}`
+            : t("spread.faceDownAria", { n: index + 1, position: posName })
         }
         onClick={() => setModal(sc)}
       >
@@ -81,10 +84,10 @@ function Slot({ sc, index, posName, rotateDeg = 0, seqReveal }: SlotProps) {
         ) : !sc.flipped && !backUrl ? (
           <CardBack size="spread" deckBackUrl={null} />
         ) : (
-          <span>{sc.card.name}</span>
+          <span>{localCard(sc.card).name}</span>
         )}
       </button>
-      {sc.flipped && sc.isReversed ? <span className="reversed-badge">Reversed</span> : null}
+      {sc.flipped && sc.isReversed ? <span className="reversed-badge">{t("card.reversed")}</span> : null}
       <div className={`pos-label ${sc.flipped ? "flipped" : ""}`}>{posName}</div>
       {modal ? (
         <CardDetailModal
@@ -125,6 +128,7 @@ function CrossRow({ cells }: { cells: React.ReactNode[] }) {
 }
 
 export function SpreadBoard({ spread, spreadCards, seqReveal }: BoardProps) {
+  const t = useT();
   const at = (i: number) => spreadCards[i];
   const s = (i: number, rotateDeg = 0) => (
     <Slot
@@ -219,8 +223,7 @@ export function SpreadBoard({ spread, spreadCards, seqReveal }: BoardProps) {
       {body}
       {!allPlaced ? (
         <p className="text-center text-sm italic text-[color:var(--ink-faint)] mt-2">
-          Select {spread.cardCount - spreadCards.length} more card
-          {spread.cardCount - spreadCards.length !== 1 ? "s" : ""} from the deck below.
+          {t("spread.selectMore", { count: spread.cardCount - spreadCards.length })}
         </p>
       ) : null}
     </div>

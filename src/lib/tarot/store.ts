@@ -10,10 +10,13 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import {
+  Card,
   CardReadingType,
   Reading,
   SpreadCard,
 } from "./types";
+import type { LanguageBundle, LanguageInfo } from "@/lib/i18n/types";
+import { ENGLISH } from "@/lib/i18n/types";
 import {
   ensureReading,
   flipAll,
@@ -51,6 +54,27 @@ export interface SavedSpread {
   pickedIndices: number[];
 }
 
+/** Agent interpretation: created in English, translated per language on demand. */
+export interface StoredInterpretation {
+  en: string;
+  tr: Record<string, string>;
+}
+
+/** Translations of a list of English texts; `source` is the JSON of those texts. */
+export interface CachedTranslation {
+  source: string;
+  texts: string[];
+}
+
+/** Drops one spread's interpretation and translations (it was cleared / reshuffled). */
+function withoutSpreadCaches(s: TarotState, t: CardReadingType) {
+  const interpretations = { ...s.interpretations };
+  const summaryTranslations = { ...s.summaryTranslations };
+  delete interpretations[t];
+  delete summaryTranslations[t];
+  return { interpretations, summaryTranslations };
+}
+
 interface TarotState {
   // view routing (st.navigation)
   view: ViewKey;
@@ -85,8 +109,22 @@ interface TarotState {
    * spread is cleared / reshuffled or the question changes.
    */
   savedSpreads: Partial<Record<CardReadingType, SavedSpread>>;
-  interpretations: Partial<Record<CardReadingType, string>>;
+  interpretations: Partial<Record<CardReadingType, StoredInterpretation>>;
+  /** Stores the English interpretation (drops earlier translations). */
   setInterpretation: (t: CardReadingType, text: string) => void;
+  setInterpretationTranslation: (t: CardReadingType, lang: string, text: string) => void;
+  /** Translated summary texts per spread and language, keyed by their English source. */
+  summaryTranslations: Partial<Record<CardReadingType, Record<string, CachedTranslation>>>;
+  setSummaryTranslation: (t: CardReadingType, lang: string, value: CachedTranslation) => void;
+
+  // localization: static UI texts + cards for the selected language
+  language: string;
+  setLanguage: (lang: string) => void;
+  languages: LanguageInfo[];
+  setLanguages: (l: LanguageInfo[]) => void;
+  /** Loaded bundle for `language`; null for English (bundled texts are used). */
+  bundle: { lang: string; ui: Record<string, string>; cards: Record<number, Card> } | null;
+  setBundle: (lang: string, b: LanguageBundle) => void;
 
   // actions (ports of the Streamlit callbacks)
   enterSpread: (t: CardReadingType) => Reading;
@@ -111,6 +149,7 @@ export const useTarotStore = create<TarotState>()(
           question: q,
           savedSpreads: {},
           interpretations: {},
+          summaryTranslations: {},
           reading: reading ? { ...reading, spreadCards: [] } : null,
           shufflePile: null,
           pickedIndices: [],
@@ -148,7 +187,28 @@ export const useTarotStore = create<TarotState>()(
       savedSpreads: {},
       interpretations: {},
       setInterpretation: (t, text) =>
-        set({ interpretations: { ...get().interpretations, [t]: text } }),
+        set({ interpretations: { ...get().interpretations, [t]: { en: text, tr: {} } } }),
+      setInterpretationTranslation: (t, lang, text) => {
+        const current = get().interpretations[t];
+        if (!current) return;
+        set({ interpretations: { ...get().interpretations, [t]: { ...current, tr: { ...current.tr, [lang]: text } } } });
+      },
+      summaryTranslations: {},
+      setSummaryTranslation: (t, lang, value) =>
+        set({
+          summaryTranslations: {
+            ...get().summaryTranslations,
+            [t]: { ...get().summaryTranslations[t], [lang]: value },
+          },
+        }),
+
+      language: ENGLISH.code,
+      setLanguage: (lang) => set({ language: lang }),
+      languages: [ENGLISH],
+      setLanguages: (l) => set({ languages: l.length > 0 ? l : [ENGLISH] }),
+      bundle: null,
+      setBundle: (lang, b) =>
+        set({ bundle: { lang, ui: b.ui, cards: Object.fromEntries(b.cards.map((c) => [c.cardId, c])) } }),
 
       /**
        * Port of `ensure_reading` — entering a spread restores its remembered
@@ -216,10 +276,8 @@ export const useTarotStore = create<TarotState>()(
         const reading = get().reading;
         if (!reading) return;
         const pile = shuffledPile();
-        const interpretations = { ...get().interpretations };
-        delete interpretations[reading.readingType];
         set({
-          interpretations,
+          ...withoutSpreadCaches(get(), reading.readingType),
           reading: {
             ...reading,
             spreadCards: [],
@@ -236,10 +294,8 @@ export const useTarotStore = create<TarotState>()(
       clearSpread: () => {
         const reading = get().reading;
         if (!reading) return;
-        const interpretations = { ...get().interpretations };
-        delete interpretations[reading.readingType];
         set({
-          interpretations,
+          ...withoutSpreadCaches(get(), reading.readingType),
           reading: { ...reading, spreadCards: [] },
           shufflePile: null,
           pickedIndices: [],
@@ -262,8 +318,18 @@ export const useTarotStore = create<TarotState>()(
         pickedIndices: s.pickedIndices,
         savedSpreads: s.savedSpreads,
         interpretations: s.interpretations,
+        summaryTranslations: s.summaryTranslations,
+        language: s.language,
         seqReveal: false,
       }),
+      // Sessions saved before interpretations were per-language stored plain strings.
+      merge: (persisted, current) => {
+        const p = (persisted ?? {}) as Partial<TarotState>;
+        const interpretations = Object.fromEntries(
+          Object.entries(p.interpretations ?? {}).filter(([, v]) => v && typeof v === "object")
+        );
+        return { ...current, ...p, interpretations };
+      },
     }
   )
 );

@@ -14,12 +14,20 @@ import { HomeView } from "./home-view";
 import { SpreadView } from "./spread-view";
 import { DeckBrowserView } from "./deck-browser-view";
 import { AboutView } from "./about-view";
+import { useLanguageLoader, useT } from "@/lib/i18n/use-i18n";
 
 export function TarotApp({ decks }: { decks: DeckInfo[] }) {
   const view = useTarotStore((s) => s.view);
   const setDecks = useTarotStore((s) => s.setDecks);
   const debugLayout = useTarotStore((s) => s.debugLayout);
+  const language = useTarotStore((s) => s.language);
   const [menuOpen, setMenuOpen] = useState(false);
+  const t = useT();
+  useLanguageLoader();
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   useEffect(() => {
     setDecks(decks);
@@ -46,12 +54,12 @@ export function TarotApp({ decks }: { decks: DeckInfo[] }) {
           type="button"
           className="t-btn px-3 py-1.5"
           onClick={() => setMenuOpen(true)}
-          aria-label="Open menu"
+          aria-label={t("app.openMenu")}
         >
           ☰
         </button>
         <span className="side-brand text-[0.95rem]">
-          <span className="star">✦</span> Orka&apos;s Tarot Pro
+          <span className="star">✦</span> {t("app.name")}
         </span>
         <span className="w-10" />
       </header>
@@ -61,13 +69,13 @@ export function TarotApp({ decks }: { decks: DeckInfo[] }) {
         className={`t-sidebar fixed inset-y-0 left-0 z-40 w-[270px] overflow-y-auto transition-transform duration-300 lg:translate-x-0 ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
-        aria-label="Sidebar"
+        aria-label={t("app.sidebar")}
       >
         <button
           type="button"
           className="absolute top-3 right-3 lg:hidden text-xl cursor-pointer bg-transparent border-none"
           onClick={() => setMenuOpen(false)}
-          aria-label="Close menu"
+          aria-label={t("app.closeMenu")}
         >
           ✕
         </button>

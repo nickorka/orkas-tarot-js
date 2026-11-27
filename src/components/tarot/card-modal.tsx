@@ -15,6 +15,7 @@ import {
 import { CardBack, CardFace } from "./card-views";
 import { useDeck } from "./card-views";
 import { Card } from "@/lib/tarot/types";
+import { useLocalCard, useT } from "@/lib/i18n/use-i18n";
 
 export interface CardModalState {
   card: Card;
@@ -24,35 +25,37 @@ export interface CardModalState {
 }
 
 export function CardDetailModal(props: CardModalState & { open: boolean; onOpenChange: (o: boolean) => void }) {
-  const { card, isReversed, positionName, positionDesc, open, onOpenChange } = props;
+  const { card: sourceCard, isReversed, positionName, positionDesc, open, onOpenChange } = props;
   const deck = useDeck();
+  const t = useT();
+  const card = useLocalCard()(sourceCard);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="t-app bg-[linear-gradient(170deg,#fdf8ea_0%,#f6ecd0_70%,#efe0bc_100%)] border-[#c9b584] rounded-[14px] max-h-[85vh] overflow-y-auto max-w-lg">
         <DialogHeader>
-          <DialogTitle className="sr-only">Card Detail</DialogTitle>
+          <DialogTitle className="sr-only">{t("card.detail")}</DialogTitle>
           <DialogDescription className="sr-only">
-            Detail of the tarot card {card.name}
+            {t("card.detailOf", { name: card.name })}
           </DialogDescription>
         </DialogHeader>
         <div className="flex flex-col items-center">
           <div className="card-frame">
             <div className="card-inner">
-              <CardFace card={card} size="detail" faceUrl={deck.faceUrl(card.cardId)} />
+              <CardFace card={sourceCard} size="detail" faceUrl={deck.faceUrl(card.cardId)} />
             </div>
           </div>
           <div className="mt-2">
             {isReversed ? (
               <span className="reversed-badge" style={{ position: "static", display: "inline-block" }}>
-                Reversed
+                {t("card.reversed")}
               </span>
             ) : (
               <span
                 className="pos-label flipped"
                 style={{ position: "static", display: "inline-block" }}
               >
-                Upright
+                {t("card.upright")}
               </span>
             )}
           </div>
@@ -72,15 +75,15 @@ export function CardDetailModal(props: CardModalState & { open: boolean; onOpenC
             {card.keywords} · {card.arcana}
           </div>
           <div className="detail-section">
-            <div className="ds-title">Card Meaning:</div>
+            <div className="ds-title">{t("card.meaning")}</div>
             {card.meaning}
           </div>
           <div className="detail-section">
-            <div className="ds-title">Upright Reading:</div>
+            <div className="ds-title">{t("card.uprightReading")}</div>
             {card.upright}
           </div>
           <div className="detail-section">
-            <div className="ds-title">Reverse Reading:</div>
+            <div className="ds-title">{t("card.reverseReading")}</div>
             {card.reversed}
           </div>
         </div>

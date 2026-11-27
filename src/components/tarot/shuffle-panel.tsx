@@ -14,9 +14,11 @@ import { useTarotStore } from "@/lib/tarot/store";
 import { CardBack } from "./card-views";
 import { useDeck } from "./card-views";
 import { useToast } from "@/hooks/use-toast";
+import { useLocalSpread, useT } from "@/lib/i18n/use-i18n";
 
 /** Compact question editor shown inside the shuffle panel. */
 function QuestionRow() {
+  const t = useT();
   const question = useTarotStore((s) => s.question);
   const setQuestion = useTarotStore((s) => s.setQuestion);
   const [open, setOpen] = useState(question === "");
@@ -32,7 +34,7 @@ function QuestionRow() {
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
       >
-        <span className="text-[color:var(--bronze)]">{open ? "▾" : "▸"}</span> Your question
+        <span className="text-[color:var(--bronze)]">{open ? "▾" : "▸"}</span> {t("question.toggle")}
       </button>
       {open ? (
         <div className="mt-2">
@@ -40,8 +42,8 @@ function QuestionRow() {
             className="t-textarea w-full p-2 min-h-[72px]"
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
-            placeholder="e.g. What should I focus on in my career this season?"
-            aria-label="Focus your mind on a single question — the cards answer best to clarity."
+            placeholder={t("question.placeholder")}
+            aria-label={t("question.aria")}
           />
           <div className="flex items-center gap-3 mt-2">
             <button
@@ -49,14 +51,14 @@ function QuestionRow() {
               className="t-btn t-btn-primary"
               onClick={() => {
                 setQuestion(draft.trim());
-                toast({ title: "Question saved", description: draft.trim() || "(cleared)" });
+                toast({ title: t("question.saved"), description: draft.trim() || t("question.cleared") });
               }}
             >
-              Save question
+              {t("question.save")}
             </button>
             {question ? (
               <span className="italic text-[color:var(--ink-soft)] text-[0.95rem]">
-                Current question: {question}
+                {t("question.current")} {question}
               </span>
             ) : null}
           </div>
@@ -66,7 +68,9 @@ function QuestionRow() {
   );
 }
 
-export function ShufflePanel({ spread }: { spread: Spread }) {
+export function ShufflePanel({ spread: sourceSpread }: { spread: Spread }) {
+  const t = useT();
+  const spread = useLocalSpread(sourceSpread);
   const reading = useTarotStore((s) => s.reading);
   const shufflePile = useTarotStore((s) => s.shufflePile);
   const pickedIndices = useTarotStore((s) => s.pickedIndices);
@@ -98,7 +102,7 @@ export function ShufflePanel({ spread }: { spread: Spread }) {
               <CardBack size="stack" deckBackUrl={back} />
               <div className="deck-count">
                 <span className="n">78</span>
-                <span className="u">CARDS</span>
+                <span className="u">{t("shuffle.cards")}</span>
               </div>
             </div>
           </div>
@@ -109,10 +113,10 @@ export function ShufflePanel({ spread }: { spread: Spread }) {
               {spread.description}
             </p>
             <p className="text-[color:var(--ink-faint)] text-[0.85rem] mt-1">
-              78-card deck · {spread.cardCount} cards to select
+              {t("shuffle.deckInfo", { count: spread.cardCount })}
             </p>
             <button type="button" className="t-btn t-btn-primary mt-3" onClick={doShuffle}>
-              Shuffle the deck
+              {t("shuffle.shuffle")}
             </button>
           </div>
         </div>
@@ -120,23 +124,26 @@ export function ShufflePanel({ spread }: { spread: Spread }) {
         // ------------------------------- Phase 2 — picking from the strip
         <div>
           <p className="text-[1.02rem]">
-            <b>{spread.title}</b> — select {spread.cardCount} cards from the deck.
+            <b>{spread.title}</b> — {t("shuffle.selectN", { count: spread.cardCount })}
             <br />
-            Pick a card from the strip below to place it in the reading.
+            {t("shuffle.pickHint")}
           </p>
           <p className="text-[color:var(--ink-faint)] text-[0.85rem] mt-1">
-            {reading.spreadCards.length} of {spread.cardCount} cards selected ·{" "}
-            {spread.cardCount - reading.spreadCards.length} remaining
+            {t("shuffle.progress", {
+              done: reading.spreadCards.length,
+              total: spread.cardCount,
+              left: spread.cardCount - reading.spreadCards.length,
+            })}
           </p>
           <div className="flex gap-3 mt-3">
             <button type="button" className="t-btn" onClick={reshuffleRedeal}>
-              Reshuffle
+              {t("shuffle.reshuffle")}
             </button>
             <button type="button" className="t-btn" onClick={clearSpread}>
-              Clear
+              {t("shuffle.clear")}
             </button>
           </div>
-          <div className="shuffle-strip mt-3" role="listbox" aria-label="Deck strip — pick a card">
+          <div className="shuffle-strip mt-3" role="listbox" aria-label={t("shuffle.strip")}>
             {shufflePile.map((cardId, i) =>
               picked.has(i) ? (
                 <div key={i} className="shuffle-placeholder" aria-hidden="true" />
@@ -146,7 +153,7 @@ export function ShufflePanel({ spread }: { spread: Spread }) {
                   type="button"
                   className="shuffle-card"
                   style={back ? { backgroundImage: `url('${back}')` } : undefined}
-                  aria-label={`Pick face-down card ${i + 1}`}
+                  aria-label={t("shuffle.pickAria", { n: i + 1 })}
                   onClick={() => pickCard(i, spread.cardCount)}
                 >
                   ✦

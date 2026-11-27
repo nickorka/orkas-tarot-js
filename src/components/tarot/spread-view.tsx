@@ -14,8 +14,11 @@ import { ShufflePanel } from "./shuffle-panel";
 import { SpreadBoard } from "./spread-board";
 import { SummaryPanel } from "./summary-panel";
 import { InterpretationButton } from "./interpretation-dialog";
+import { Md } from "./md";
+import { useLocalSpread, useT } from "@/lib/i18n/use-i18n";
 
 export function SpreadView({ readingType }: { readingType: CardReadingType }) {
+  const t = useT();
   const spread = getSpread(readingType);
   const reading = useTarotStore((s) => s.reading);
   const shufflePile = useTarotStore((s) => s.shufflePile);
@@ -23,8 +26,7 @@ export function SpreadView({ readingType }: { readingType: CardReadingType }) {
   const question = useTarotStore((s) => s.question);
   const enterSpread = useTarotStore((s) => s.enterSpread);
 
-  // Port of ensure_reading: entering the page (re)initialises the reading;
-  // switching to a different spread reshuffles the deck.
+  // Entering the page restores this spread's remembered reading or starts one.
   useEffect(() => {
     enterSpread(readingType);
   }, [readingType, enterSpread]);
@@ -33,19 +35,20 @@ export function SpreadView({ readingType }: { readingType: CardReadingType }) {
   // mirroring st.session_state.pop("sequential_flip").
   useEffect(() => {
     if (seqReveal) {
-      const t = setTimeout(() => useTarotStore.setState({ seqReveal: false }), spread.cardCount * 350 + 600);
-      return () => clearTimeout(t);
+      const timer = setTimeout(() => useTarotStore.setState({ seqReveal: false }), spread.cardCount * 350 + 600);
+      return () => clearTimeout(timer);
     }
   }, [seqReveal, spread.cardCount]);
 
   const dealt = !!reading && reading.spreadCards.length > 0;
   const shownReading = reading?.readingType === readingType ? reading : null;
+  const local = useLocalSpread(spread);
 
   return (
     <div>
       <div className="t-hero">
-        <h1>{spread.title}</h1>
-        <div className="t-tagline">{spread.tagline}</div>
+        <h1>{local.title}</h1>
+        <div className="t-tagline">{local.tagline}</div>
       </div>
       <div className="t-ornament">✦ ─── ❖ ─── ✦</div>
 
@@ -58,8 +61,7 @@ export function SpreadView({ readingType }: { readingType: CardReadingType }) {
         </div>
       ) : (
         <p className="text-center text-[0.88rem] italic text-[color:var(--ink-faint)] mt-3">
-          No question has been asked yet — visit <i>Ask the Cards</i> in the menu,
-          or set one inside the panel above. A focused question sharpens any reading.
+          <Md text={t("spread.noQuestion")} />
         </p>
       )}
 
@@ -67,16 +69,16 @@ export function SpreadView({ readingType }: { readingType: CardReadingType }) {
 
       {shownReading && dealt ? (
         <div>
-          <SpreadBoard spread={spread} spreadCards={shownReading.spreadCards} seqReveal={seqReveal} />
+          <SpreadBoard spread={local} spreadCards={shownReading.spreadCards} seqReveal={seqReveal} />
           {shownReading.spreadCards.length >= spread.cardCount ? (
             <div>
               <div className="t-ornament">· · ✦ · ·</div>
               <div className="flex justify-center gap-4">
                 <button type="button" className="t-btn" onClick={() => useTarotStore.getState().reshuffleRedeal()}>
-                  Reshuffle &amp; redeal
+                  {t("spread.reshuffleRedeal")}
                 </button>
                 <button type="button" className="t-btn" onClick={() => useTarotStore.getState().clearSpread()}>
-                  Clear spread
+                  {t("spread.clearSpread")}
                 </button>
               </div>
               {shownReading.spreadCards.every((c) => c.flipped) ? (
@@ -90,8 +92,7 @@ export function SpreadView({ readingType }: { readingType: CardReadingType }) {
           className="t-panel"
           style={{ textAlign: "center", fontStyle: "italic", color: "var(--ink-soft)" }}
         >
-          The deck awaits. Shuffle the cards, then pick them one by one
-          from the strip to build your reading.
+          {t("spread.deckAwaits")}
         </div>
       ) : null}
     </div>
