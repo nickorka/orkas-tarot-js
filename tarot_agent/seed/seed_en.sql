@@ -33,7 +33,7 @@ SELECT column1 AS UI_ID, column2 AS CONTENT FROM VALUES
     ('about.tagline', 'A quiet companion for reading the cards'),
     ('about.title', 'About'),
     ('app.closeMenu', 'Close menu'),
-    ('app.name', 'Orka''s Tarot Pro'),
+    ('app.name', 'Orka''s Tarot'),
     ('app.openMenu', 'Open menu'),
     ('app.sidebar', 'Sidebar'),
     ('app.translating', 'Translating…'),

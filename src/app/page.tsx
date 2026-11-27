@@ -2,7 +2,7 @@ import { TarotApp } from "@/components/tarot/tarot-app";
 import { listDecks } from "@/lib/deck-registry";
 
 /**
- * Orka's Tarot Pro — Node.js edition (Next.js port of the Streamlit app).
+ * Orka's Tarot — single-page tarot reading app.
  *
  * The deck registry scan (domain/deck_images.py) runs server-side once
  * per request; everything else — session state, shuffling, dealing,

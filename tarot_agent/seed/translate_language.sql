@@ -6,9 +6,10 @@
 -- below and run the whole script.
 
 USE WAREHOUSE TAROT_WH;
+USE SCHEMA TAROT.APP;
 
-SET LANG        = 'hr';
-SET LANG_NAME   = 'Croatian';
+SET LANG        = 'zh';
+SET LANG_NAME   = 'Chinese';
 -- Language name in the language itself, first letter capitalized for the picker.
 SET LANG_NATIVE = (
     SELECT UPPER(LEFT(t, 1)) || SUBSTR(t, 2)

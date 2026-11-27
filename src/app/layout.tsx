@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Orka's Tarot Pro — Node.js Edition",
+  title: "Orka's Tarot",
   description:
-    "Web port of the Android tarot application (via Streamlit), rebuilt as a Next.js Node.js app: five spreads, a full 78-card deck with upright & reversed readings, deck artwork system and the parchment theme.",
-  keywords: ["tarot", "Orka's Tarot Pro", "Next.js", "Node.js", "Celtic Cross", "deck browser"],
+    "Tarot readings with five spreads, a full 78-card deck with upright & reversed readings and selectable card artwork.",
+  keywords: ["tarot", "Orka's Tarot", "tarot reading", "Celtic Cross", "deck browser"],
   icons: {
     icon: "data:image/svg+xml," +
       encodeURIComponent(
