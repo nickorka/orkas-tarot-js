@@ -9,6 +9,7 @@ import ReactMarkdown from "react-markdown";
 import { Spread } from "@/lib/tarot/spreads";
 import { Reading } from "@/lib/tarot/types";
 import { buildInterpretationPrompt } from "@/lib/tarot/interpretation-prompt";
+import { useTarotStore } from "@/lib/tarot/store";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 type State = { status: "idle" } | { status: "loading" } | { status: "done"; text: string } | { status: "error"; message: string };
@@ -34,6 +35,12 @@ export function InterpretationButton({
 
   const run = async () => {
     if (!hasReading || !reading) return;
+    // Reuse the interpretation remembered for this spread's reading.
+    const cached = useTarotStore.getState().interpretations[spread.readingType];
+    if (cached) {
+      setState({ status: "done", text: cached });
+      return;
+    }
     abortRef.current?.abort();
     const controller = new AbortController();
     abortRef.current = controller;
@@ -49,7 +56,9 @@ export function InterpretationButton({
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? `Request failed (${res.status})`);
-      setState({ status: "done", text: data.interpretation || "The agent returned no interpretation." });
+      const interpretation: string = data.interpretation || "The agent returned no interpretation.";
+      if (data.interpretation) useTarotStore.getState().setInterpretation(spread.readingType, interpretation);
+      setState({ status: "done", text: interpretation });
     } catch (err) {
       if (controller.signal.aborted) return;
       setState({ status: "error", message: err instanceof Error ? err.message : String(err) });

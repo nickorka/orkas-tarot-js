@@ -44,6 +44,13 @@ export interface DeckInfo {
   back: string | null;
 }
 
+/** A spread's in-progress state, parked while another spread is open. */
+export interface SavedSpread {
+  reading: Reading;
+  shufflePile: number[] | null;
+  pickedIndices: number[];
+}
+
 interface TarotState {
   // view routing (st.navigation)
   view: ViewKey;
@@ -72,6 +79,15 @@ interface TarotState {
   debugLayout: boolean;
   setDebugLayout: (b: boolean) => void;
 
+  /**
+   * Per-spread memory: readings of spreads other than the current one, and
+   * the agent interpretation of each spread's reading. Kept until the
+   * spread is cleared / reshuffled or the question changes.
+   */
+  savedSpreads: Partial<Record<CardReadingType, SavedSpread>>;
+  interpretations: Partial<Record<CardReadingType, string>>;
+  setInterpretation: (t: CardReadingType, text: string) => void;
+
   // actions (ports of the Streamlit callbacks)
   enterSpread: (t: CardReadingType) => Reading;
   doShuffle: () => void;
@@ -87,7 +103,21 @@ export const useTarotStore = create<TarotState>()(
       setView: (v) => set({ view: v }),
 
       question: "",
-      setQuestion: (q) => set({ question: q }),
+      // A new question invalidates every remembered reading and interpretation.
+      setQuestion: (q) => {
+        if (q === get().question) return;
+        const reading = get().reading;
+        set({
+          question: q,
+          savedSpreads: {},
+          interpretations: {},
+          reading: reading ? { ...reading, spreadCards: [] } : null,
+          shufflePile: null,
+          pickedIndices: [],
+          lastFlipped: null,
+          seqReveal: false,
+        });
+      },
 
       reading: null,
       lastFlipped: null,
@@ -115,19 +145,32 @@ export const useTarotStore = create<TarotState>()(
       debugLayout: false,
       setDebugLayout: (b) => set({ debugLayout: b }),
 
-      /** Port of `ensure_reading` — entering a spread (re)initialises it. */
+      savedSpreads: {},
+      interpretations: {},
+      setInterpretation: (t, text) =>
+        set({ interpretations: { ...get().interpretations, [t]: text } }),
+
+      /**
+       * Port of `ensure_reading` — entering a spread restores its remembered
+       * reading, or starts a fresh one. The spread being left is parked.
+       */
       enterSpread: (t) => {
-        const next = ensureReading(get().reading, t);
-        if (next !== get().reading) {
-          set({
-            reading: next,
-            lastFlipped: null,
-            shufflePile: null,
-            pickedIndices: [],
-            seqReveal: false,
-          });
-        }
-        return next!;
+        const { reading, shufflePile, pickedIndices, savedSpreads } = get();
+        if (reading && reading.readingType === t) return reading;
+        const saved = { ...savedSpreads };
+        if (reading) saved[reading.readingType] = { reading, shufflePile, pickedIndices };
+        const restored = saved[t];
+        delete saved[t];
+        const next = restored?.reading ?? ensureReading(null, t)!;
+        set({
+          reading: next,
+          savedSpreads: saved,
+          lastFlipped: null,
+          shufflePile: restored?.shufflePile ?? null,
+          pickedIndices: restored?.pickedIndices ?? [],
+          seqReveal: false,
+        });
+        return next;
       },
 
       /** Port of `_render_initial`'s "Shuffle the deck" button. */
@@ -173,7 +216,10 @@ export const useTarotStore = create<TarotState>()(
         const reading = get().reading;
         if (!reading) return;
         const pile = shuffledPile();
+        const interpretations = { ...get().interpretations };
+        delete interpretations[reading.readingType];
         set({
+          interpretations,
           reading: {
             ...reading,
             spreadCards: [],
@@ -190,7 +236,10 @@ export const useTarotStore = create<TarotState>()(
       clearSpread: () => {
         const reading = get().reading;
         if (!reading) return;
+        const interpretations = { ...get().interpretations };
+        delete interpretations[reading.readingType];
         set({
+          interpretations,
           reading: { ...reading, spreadCards: [] },
           shufflePile: null,
           pickedIndices: [],
@@ -211,6 +260,8 @@ export const useTarotStore = create<TarotState>()(
         debugLayout: s.debugLayout,
         shufflePile: s.shufflePile,
         pickedIndices: s.pickedIndices,
+        savedSpreads: s.savedSpreads,
+        interpretations: s.interpretations,
         seqReveal: false,
       }),
     }
